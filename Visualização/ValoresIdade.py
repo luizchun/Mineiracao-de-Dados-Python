@@ -2,7 +2,7 @@ import pandas as pd
 import statistics
 import matplotlib.pyplot as plt
 
-input_file = 'Datasets\hepatitis-clean.data'  
+input_file = 'Dataset/hepatitis-clean.data'  # Importação dos Dados
 df = pd.read_csv(input_file)
 columns = list(df.columns)
 
@@ -15,7 +15,7 @@ IDADEMediana = statistics.median(IDADELista)
 IDADEPontoMedio = (
     IDADEListaOrdenado[0] + IDADEListaOrdenado[len(IDADEListaOrdenado)-1])/2
 
-print("Tendência Central de batimentos cardíacos cavalos com cólicas")
+print("Tendência Central das Idades das Pessoas com Hepatite")
 print("Média = " + str(IDADEMedia))
 print("Moda = " + str(IDADEModa[0]))
 print("Mediana = " + str(IDADEMediana))
@@ -27,7 +27,7 @@ IDADEDesvioPadrao = statistics.pstdev(IDADELista)
 IDADEVariancia = statistics.pvariance(IDADELista)
 IDADECoeficienteVariacao = (IDADEDesvioPadrao/IDADEMedia)*100
 
-print("\nMedidas de dispersão de batimentos cardíacos cavalos com cólicas")
+print("\nMedidas de dispersão das Idades das Pessoas com Hepatite")
 print("Amplitude = " + str(IDADEAmplitude))
 print("Desvio Padrão = " + str(IDADEDesvioPadrao))
 print("Variância = " + str(IDADEVariancia))
@@ -49,9 +49,9 @@ font_1 = {'family': 'serif', 'color': 'darkred', 'size': '14'}
 
 plt.figure(figsize=(6, 7))
 plt.boxplot(IDADE)
-plt.title('Boxplot Batimentos Cardíacos')
+plt.title('Boxplot Idade')
 plt.text(1, q1, s_q1, fontdict=font_1)
 plt.text(1, mediana, s_mediana, fontdict=font_1)
 plt.text(1, q2, s_q2, fontdict=font_1)
-plt.ylabel('Batimentos')
+plt.ylabel('Idade')
 plt.show()
