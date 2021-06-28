@@ -52,12 +52,12 @@ def plot_confusion_matrix(cm, classes,
 
 def main():
     # load dataset
-    target_names = ['HOMEM', 'MULHER']
+    target_names = ['Viveu', 'Morreu']
     input_file = './Dataset/hepatitis-clean.data'
-    features = [ 'ANTIVIRAIS' , 'FADIGA' , 'MAL-ESTAR' , 'ANOREXIA' , 'GRANDE FIGADO' , 'FIGADO' , 'BATIDO' , 'ARANHAS' , 'ASCITAS' , 'VARICES' , 'BILIRRUBINA' , 'ALBUMINA' , 'HISTOLOGIA']
+    features = [ 'CLASSE' , 'ANTIVIRAIS' , 'FADIGA' , 'MAL-ESTAR' , 'ANOREXIA' , 'GRANDE FIGADO' , 'FIGADO' , 'BATIDO' , 'ARANHAS' , 'ASCITAS' , 'VARICES' , 'BILIRRUBINA' , 'ALBUMINA' , 'HISTOLOGIA']
     data = pd.read_csv(input_file, names=features)
     df = pd.DataFrame(data=data, columns=data.columns)
-    df['target'] = data['BILIRRUBINA']
+    df['target'] = data['CLASSE']
 
     # Separate X and y data
     X = df.drop('target', axis=1)
